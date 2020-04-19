@@ -1,0 +1,1 @@
+# hibernate-self-reference-example
