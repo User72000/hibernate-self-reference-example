@@ -1,0 +1,41 @@
+buildscript {
+    ext {
+        springBootVersion = '2.0.4.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-web')
+    compile group: 'org.hibernate', name: 'hibernate-core', version: '5.3.6.Final'
+    compile group: 'org.hibernate', name: 'hibernate-c3p0', version: '5.3.6.Final'
+    compile group: 'org.springframework', name: 'spring-orm', version: '5.0.8.RELEASE'
+    compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.36'
+}
+
+bootJar {
+    enabled = false
+}
+
+jar {
+    enabled = true
+}
